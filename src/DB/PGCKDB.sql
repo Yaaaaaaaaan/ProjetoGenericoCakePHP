@@ -72,8 +72,12 @@ create table estoque_produtos(
 	foreign key (produto_id) references produtos (id)
 );
 create table transacao(
-	codTransacao Int(11) not null auto_increment primary key
-	
+	id int(11) not null auto_increment primary key,
+	status_produto_id int(11),
+    usuario_id int(11),
+    fornecedor_id int(11),
+    created datetime,
+	modified datetime
 );
 create table status_produtos(
 	id INT(11) NOT NULL AUTO_INCREMENT primary key,
