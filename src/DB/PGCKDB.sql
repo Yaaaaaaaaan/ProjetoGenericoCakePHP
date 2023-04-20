@@ -41,21 +41,12 @@ create table produtos(
 	status_produto varchar(1) not null default 'A',
 	desc_produto varchar(50) null default null,
 	tam_produto varchar(5) null default null,
-	estMin_produto int(11) null default null,
-	estMax_produto int(11) null default null,
+	estmin_produto int(11) null default null,
+	estmax_produto int(11) null default null,
 	classe_produto_id int(11) not null,
     created datetime,
 	modified datetime,
 	foreign key (classe_produto_id) references classe_produtos (id)
-);
-create table entradaProduto(
-	id INT(11) NOT NULL AUTO_INCREMENT primary key,
-	produto_id INT(11) NULL DEFAULT NULL,
-	qtde INT(11) NULL DEFAULT NULL,
-	vlrUnit DECIMAL(9,2) NULL DEFAULT  '0.00' ,
-	created datetime,
-	modified datetime,
-	foreign key (produto_id) references produtos (id),
 );
 create table baseCalc(
 	codBaseCalc int(11) not null auto_increment primary key,
@@ -79,19 +70,18 @@ create table estoque(
 	vlrUnitVen  DECIMAL(9,2) NULL DEFAULT '0.00',
 	foreign key (codProdFkEst) references produto (codProd)
 );
-create table saidaProduto (
-	codSaiProd INT(11) NOT NULL AUTO_INCREMENT primary key,
-	codProdFkSai INT(11) NULL DEFAULT NULL,
-	qtde INT(11) NULL DEFAULT NULL,
-	dataSai datetime default current_timestamp,
-	vlrUnit DECIMAL(9,2) NULL DEFAULT '0.00',
-	idUsuarioFkSai int(11),
-	foreign key (codProdFkSai) references produto (codProd),
-	foreign key (idUsuarioFkSai) references usuario (idUsuario)
-);
 create table transacao(
 	codTransacao Int(11) not null auto_increment primary key
 	
+);
+create table status_produtos(
+	id INT(11) NOT NULL AUTO_INCREMENT primary key,
+	produto_id INT(11) NULL DEFAULT NULL,
+	qtde_status_produto INT(11) NULL DEFAULT NULL,
+	vlrunit_status_produto DECIMAL(9,2) NULL DEFAULT  '0.00' ,
+	created datetime,
+	modified datetime,
+	foreign key (produto_id) references produtos (id),
 );
 create table docs(
 	codDocs int(11) not null auto_increment primary key,
