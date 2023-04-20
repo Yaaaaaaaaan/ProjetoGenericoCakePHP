@@ -56,17 +56,17 @@ create table basecalcs(
 );
 create table configsis(
 	id int(11) not null auto_increment primary key,
-    tema_configsis int(2) null,
+    tema_configsi int(2) null,
 	usuario_id int(11) not null,
 	foreign key (usuario_id) references usuario (id)
 );
-create table estoque(
-	codEst int(11) not null AUTO_INCREMENT primary key,
-	codProdFkEst  INT(11) UNIQUE,
-	qtde  INT(11) NULL DEFAULT NULL,
-	vlrUnitCom  DECIMAL(9,2) NULL DEFAULT '0.00',
-	baseCalc DECIMAL(9,2) null default '0.00',
-	vlrUnitVen  DECIMAL(9,2) NULL DEFAULT '0.00',
+create table estoque_produtos(
+	id int(11) not null AUTO_INCREMENT primary key,
+	produto_id  INT(11) UNIQUE,
+	qtde_estoque_produto INT(11) NULL DEFAULT NULL,
+	vlrunitcom_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
+	basecalc_estoque_produto DECIMAL(9,2) null default '0.00',
+	vlrunitven_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
 	foreign key (codProdFkEst) references produto (codProd)
 );
 create table transacao(
