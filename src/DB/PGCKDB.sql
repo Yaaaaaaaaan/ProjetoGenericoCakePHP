@@ -84,12 +84,12 @@ create table status_produtos(
 	modified datetime,
 	foreign key (produto_id) references produtos (id),
 );
-create table transacao(
+create table transacoes(
 	id int(11) not null auto_increment primary key,
 	status_produto_id int(11),
     usuario_id int(11) null,
     fornecedor_id int(11) null,
-    desc_transacao varchar(50),
+    desc_transacoes varchar(50),
     created datetime,
 	modified datetime,
     foreign key (status_produto_id) references status_produtos (id),
