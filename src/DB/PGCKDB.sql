@@ -71,14 +71,6 @@ create table estoque_produtos(
 	modified datetime,
 	foreign key (produto_id) references produtos (id)
 );
-create table transacao(
-	id int(11) not null auto_increment primary key,
-	status_produto_id int(11),
-    usuario_id int(11),
-    fornecedor_id int(11),
-    created datetime,
-	modified datetime
-);
 create table status_produtos(
 	id INT(11) NOT NULL AUTO_INCREMENT primary key,
 	produto_id INT(11) NULL DEFAULT NULL,
@@ -87,6 +79,17 @@ create table status_produtos(
 	created datetime,
 	modified datetime,
 	foreign key (produto_id) references produtos (id),
+);
+create table transacao(
+	id int(11) not null auto_increment primary key,
+	status_produto_id int(11),
+    usuario_id int(11),
+    fornecedor_id int(11),
+    created datetime,
+	modified datetime,
+    foreign key (status_produto_id) references status_produtos (id),
+    foreign key (produto_id) references produtos (id),
+    foreign key (produto_id) references produtos (id)
 );
 create table docs(
 	codDocs int(11) not null auto_increment primary key,
