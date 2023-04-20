@@ -54,11 +54,11 @@ create table basecalcs(
 	created datetime,
 	modified datetime,
 );
-create table configSistema(
-	codConfigSistema int(11) not null auto_increment primary key,
-	descConf int(11) not null,
-	idUsuarioFkConfS int(11) not null,
-	foreign key (idUsuarioFkConfS) references usuario (idUsuario)
+create table configsis(
+	id int(11) not null auto_increment primary key,
+    tema_configsis int(2) null,
+	usuario_id int(11) not null,
+	foreign key (usuario_id) references usuario (id)
 );
 create table estoque(
 	codEst int(11) not null AUTO_INCREMENT primary key,
