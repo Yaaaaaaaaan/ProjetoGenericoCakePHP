@@ -93,6 +93,7 @@ create table transacoes(
     desc_transacao varchar(50),
     fpgto_transacao varchar(50),
     total_transacao decimal(12,2) null,
+    total_prods_transacao int(11) not null,
     created datetime,
 	modified datetime,
     foreign key (status_produto_id) references status_produtos (id),
