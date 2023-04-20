@@ -48,12 +48,11 @@ create table produtos(
 	modified datetime,
 	foreign key (classe_produto_id) references classe_produtos (id)
 );
-create table baseCalc(
-	codBaseCalc int(11) not null auto_increment primary key,
-	baseCalc DECIMAL(9,2) null default '0.00',
-	dataIncl datetime default current_timestamp,
-	idUsuarioFkBasC int(11),
-	foreign key (idUsuarioFkBasC) references usuario (idUsuario)
+create table basecalcs(
+	id int(11) not null auto_increment primary key,
+	vlr_basecalc DECIMAL(9,2) null default '0.00',
+	created datetime,
+	modified datetime,
 );
 create table configSistema(
 	codConfigSistema int(11) not null auto_increment primary key,
