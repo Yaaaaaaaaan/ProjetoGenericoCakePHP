@@ -58,18 +58,22 @@ create table basecalcs(
 	id int(11) not null auto_increment primary key,
 	vlr_basecalc DECIMAL(9,2) null default '0.00',
 	created datetime,
-	modified datetime
+    modified datetime,
+    produto_id int(11),
+    foreign key (produto_id) references produtos (id)
+	
 );
 create table estoque_produtos(
 	id int(11) not null AUTO_INCREMENT primary key,
 	produto_id  INT(11) UNIQUE,
 	qtde_estoque_produto INT(11) NULL DEFAULT NULL,
 	vlrunitcom_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
-	basecalc_estoque_produto DECIMAL(9,2) null default '0.00',
+	basecalc_id int(11),
 	vlrunitven_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
     created datetime,
 	modified datetime,
 	foreign key (produto_id) references produtos (id)
+    foreign key (basecalc_id) references basecalcs (id)
 );
 create table status_produtos(
 	id INT(11) NOT NULL AUTO_INCREMENT primary key,
@@ -83,13 +87,14 @@ create table status_produtos(
 create table transacao(
 	id int(11) not null auto_increment primary key,
 	status_produto_id int(11),
-    usuario_id int(11),
-    fornecedor_id int(11),
+    usuario_id int(11) null,
+    fornecedor_id int(11) null,
+    desc_transacao varchar(50),
     created datetime,
 	modified datetime,
     foreign key (status_produto_id) references status_produtos (id),
-    foreign key (produto_id) references produtos (id),
-    foreign key (produto_id) references produtos (id)
+    foreign key (usuario_id) references usuarios (id),
+    foreign key (fornecedor_id) references fornecedores (id)
 );
 create table docs(
 	codDocs int(11) not null auto_increment primary key,
