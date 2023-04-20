@@ -58,7 +58,7 @@ create table basecalcs(
 	id int(11) not null auto_increment primary key,
 	vlr_basecalc DECIMAL(9,2) null default '0.00',
 	created datetime,
-	modified datetime,
+	modified datetime
 );
 create table estoque_produtos(
 	id int(11) not null AUTO_INCREMENT primary key,
@@ -67,6 +67,8 @@ create table estoque_produtos(
 	vlrunitcom_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
 	basecalc_estoque_produto DECIMAL(9,2) null default '0.00',
 	vlrunitven_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
+    created datetime,
+	modified datetime,
 	foreign key (produto_id) references produtos (id)
 );
 create table transacao(
