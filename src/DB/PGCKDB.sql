@@ -11,6 +11,12 @@ create table usuarios(
 	created datetime,
 	modified datetime
 );
+create table configsis(
+	id int(11) not null auto_increment primary key,
+    tema_configsi int(2) null,
+	usuario_id int(11) not null,
+	foreign key (usuario_id) references usuarios (id)
+);
 create table fornecedores(
 	id int(11) not null auto_increment primary key,
 	nome_fornecedor varchar(100) not null unique,
@@ -54,12 +60,6 @@ create table basecalcs(
 	created datetime,
 	modified datetime,
 );
-create table configsis(
-	id int(11) not null auto_increment primary key,
-    tema_configsi int(2) null,
-	usuario_id int(11) not null,
-	foreign key (usuario_id) references usuario (id)
-);
 create table estoque_produtos(
 	id int(11) not null AUTO_INCREMENT primary key,
 	produto_id  INT(11) UNIQUE,
@@ -67,7 +67,7 @@ create table estoque_produtos(
 	vlrunitcom_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
 	basecalc_estoque_produto DECIMAL(9,2) null default '0.00',
 	vlrunitven_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
-	foreign key (codProdFkEst) references produto (codProd)
+	foreign key (produto_id) references produtos (id)
 );
 create table transacao(
 	codTransacao Int(11) not null auto_increment primary key
