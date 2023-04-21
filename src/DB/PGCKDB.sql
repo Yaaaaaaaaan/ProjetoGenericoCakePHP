@@ -40,7 +40,7 @@ create table usufor_dados(
 create table classe_produtos(
 	id int(11) not null auto_increment primary key,
 	nvclbase varchar(255) not null, /* Classe base Ex: Alimenticio, Vestuario */
-	nvcldesc varchar(255) not null unique, /* Classe descrição Ex: Perecivel, não Perecivel */
+	nvcldesc varchar(255) not null unique /* Classe descrição Ex: Perecivel, não Perecivel */
 );
 create table produtos(
 	id int(11) not null auto_increment primary key,
@@ -62,7 +62,7 @@ create table estoque_produtos(
 	vlrunitven  DECIMAL(9,2) NULL DEFAULT '0.00',
     created datetime,
 	modified datetime,
-	foreign key (produto_id) references produtos (id)
+	foreign key (produto_id) references produtos (id),
     foreign key (basecalc_id) references basecalcs (id)
 );
 create table status_produtos(
@@ -73,12 +73,12 @@ create table status_produtos(
     vlrtotal DECIMAL(9,2) NULL DEFAULT  '0.00' ,
 	created datetime,
 	modified datetime,
-	foreign key (produto_id) references produtos (id),
+	foreign key (produto_id) references produtos (id)
 );
 create table formapgt(
     id int(11) not null auto_increment primary key,
     fpgto varchar(20), /* dinheiro, cartão débito, cartão crédito, cheque, pix, prazo, parcelado */
-    qtdp int
+    qtdp int(4)
 );
 create table transacoes(
 	id int(11) not null auto_increment primary key,
