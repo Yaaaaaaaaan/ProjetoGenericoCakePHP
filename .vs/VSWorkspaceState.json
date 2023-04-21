@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\config",
+    "\\src",
+    "\\src\\View",
+    "\\src\\View\\Cell",
+    "\\src\\View\\Helper",
+    "\\templates",
+    "\\templates\\Pages",
+    "\\tests\\TestCase\\Model",
+    "\\tests\\TestCase\\Model\\Behavior"
+  ],
+  "SelectedNode": "\\src\\DB\\PGCKDB.sql",
+  "PreviewInSolutionExplorer": false
+}
