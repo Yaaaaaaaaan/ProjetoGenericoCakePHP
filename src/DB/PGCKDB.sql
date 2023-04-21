@@ -66,10 +66,10 @@ create table basecalcs(
 create table estoque_produtos(
 	id int(11) not null AUTO_INCREMENT primary key,
 	produto_id  INT(11) UNIQUE,
-	qtde_estoque_produto INT(11) NULL DEFAULT NULL,
-	vlrunitcom_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
+	qtde INT(11) NULL DEFAULT NULL,
+	vlrunitcom  DECIMAL(9,2) NULL DEFAULT '0.00',
 	basecalc_id int(11),
-	vlrunitven_estoque_produto  DECIMAL(9,2) NULL DEFAULT '0.00',
+	vlrunitven  DECIMAL(9,2) NULL DEFAULT '0.00',
     created datetime,
 	modified datetime,
 	foreign key (produto_id) references produtos (id)
