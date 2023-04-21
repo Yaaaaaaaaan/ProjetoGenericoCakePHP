@@ -75,10 +75,9 @@ create table status_produtos(
 	modified datetime,
 	foreign key (produto_id) references produtos (id)
 );
-create table formapgt(
+create table formapgts(
     id int(11) not null auto_increment primary key,
     fpgto varchar(20), /* dinheiro, cartão débito, cartão crédito, cheque, pix, prazo, parcelado */
-    qtdp int(4)
 );
 create table transacoes(
 	id int(11) not null auto_increment primary key,
@@ -86,14 +85,16 @@ create table transacoes(
     usuario_id int(11) null,
     fornecedor_id int(11) null,
     desc bit not null, /*Caso 1-compra ou 0-venda*/
-    
-    total decimal(12,2) null,
-    total_prods_transacao int(11) not null,
+    total decimal(12,2) null, /*dinâmico de acordo com a soma produto_id + qtde em status produtos*/
+    total_prods_transacao int(11) not null, /*dinâmico de acordo com a soma produto_id + qtde em status produtos*/
+    formapgt_id int(11),
+    qtdparce int(4),
     created datetime,
 	modified datetime,
     foreign key (status_produto_id) references status_produtos (id),
     foreign key (usuario_id) references usuarios (id),
-    foreign key (fornecedor_id) references fornecedores (id)
+    foreign key (fornecedor_id) references fornecedores (id),
+    foreign key (formapgt_id) references formapgts (id)
 );
 create table docs(
 	id int(11) not null auto_increment primary key,
