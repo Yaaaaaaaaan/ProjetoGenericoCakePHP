@@ -101,10 +101,10 @@ create table transacoes(
     foreign key (fornecedor_id) references fornecedores (id)
 );
 create table docs(
-	codDocs int(11) not null auto_increment primary key,
-	nomeDocs varchar(255) not null unique,
-	dataInclusaoDocs datetime default current_timestamp,
-	codProdFkDocs INT(11)null default null,
+	id int(11) not null auto_increment primary key,
+	nome_docs varchar(255) not null unique,
+	created datetime,
+	id_produto INT(11)null default null,
 	foreign key (codProdFkDocs) references produto (codProd)
 );  
 create table configUsuario(
