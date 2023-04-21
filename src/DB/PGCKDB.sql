@@ -80,9 +80,9 @@ create table transacoes(
 	status_produto_id int(11),
     usuario_id int(11) null,
     fornecedor_id int(11) null,
-    desc_transacao varchar(50),
-    fpgto_transacao varchar(50),
-    total_transacao decimal(12,2) null,
+    desc bit not null, /*Caso 1-compra ou 0-venda*/
+    fpgto varchar(50),
+    total decimal(12,2) null,
     total_prods_transacao int(11) not null,
     created datetime,
 	modified datetime,
