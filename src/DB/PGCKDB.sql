@@ -54,21 +54,11 @@ create table produtos(
 	modified datetime,
 	foreign key (classe_produto_id) references classe_produtos (id)
 );
-create table basecalcs(
-	id int(11) not null auto_increment primary key,
-	valor DECIMAL(9,2) null default '0.00',
-	created datetime,
-    modified datetime,
-    produto_id int(11),
-    foreign key (produto_id) references produtos (id)
-	
-);
 create table estoque_produtos(
 	id int(11) not null AUTO_INCREMENT primary key,
 	produto_id  INT(11) UNIQUE,
 	qtde INT(11) NULL DEFAULT NULL,
 	vlrunitcom  DECIMAL(9,2) NULL DEFAULT '0.00',
-	basecalc_id int(11),
 	vlrunitven  DECIMAL(9,2) NULL DEFAULT '0.00',
     created datetime,
 	modified datetime,
