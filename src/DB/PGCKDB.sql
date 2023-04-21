@@ -124,5 +124,7 @@ create table historico(
 	infoAnte varchar(255) null,
 	idUsuarioFkHist int(11) not null,
 	dataHist datetime default current_timestamp,
+
+    foreign key (idUsuarioFkHist) references usuario (idUsuario),
 	foreign key (idUsuarioFkHist) references usuario (idUsuario)
 );
