@@ -39,8 +39,8 @@ create table usufor_dados(
 );
 create table classe_produtos(
 	id int(11) not null auto_increment primary key,
-	ncb_classe_produto varchar(255) not null, /* Classe base Ex: Alimenticio, Vestuario */
-	ncd_classe_produto varchar(255) not null unique, /* Classe descrição Ex: Perecivel, não Perecivel */
+	nvclbase varchar(255) not null, /* Classe base Ex: Alimenticio, Vestuario */
+	nvcldesc varchar(255) not null unique, /* Classe descrição Ex: Perecivel, não Perecivel */
 );
 create table produtos(
 	id int(11) not null auto_increment primary key,
