@@ -68,9 +68,9 @@ create table estoque_produtos(
 create table status_produtos(
 	id INT(11) NOT NULL AUTO_INCREMENT primary key,
 	produto_id INT(11) NULL DEFAULT NULL,
-	qtde_status_produto INT(11) NULL DEFAULT NULL,
-	vlrunit_status_produto DECIMAL(9,2) NULL DEFAULT  '0.00' ,
-    vlrtotal_status_produto DECIMAL(9,2) NULL DEFAULT  '0.00' ,
+	qtde INT(11) NULL DEFAULT NULL,
+	vlrunit DECIMAL(9,2) NULL DEFAULT  '0.00' ,
+    vlrtotal DECIMAL(9,2) NULL DEFAULT  '0.00' ,
 	created datetime,
 	modified datetime,
 	foreign key (produto_id) references produtos (id),
