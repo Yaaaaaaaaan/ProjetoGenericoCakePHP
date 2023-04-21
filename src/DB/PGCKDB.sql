@@ -44,11 +44,11 @@ create table classe_produtos(
 );
 create table produtos(
 	id int(11) not null auto_increment primary key,
-	status_produto varchar(1) not null default 'A',
-	desc_produto varchar(50) null default null,
-	tam_produto varchar(5) null default null,
-	estmin_produto int(11) null default null,
-	estmax_produto int(11) null default null,
+	status varchar(1) not null default 'A',
+	descr varchar(50) null default null,
+	taman varchar(5) null default null,
+	estmin int(11) null default null,
+	estmax int(11) null default null,
 	classe_produto_id int(11) not null,
     created datetime,
 	modified datetime,
@@ -56,7 +56,7 @@ create table produtos(
 );
 create table basecalcs(
 	id int(11) not null auto_increment primary key,
-	vlr_basecalc DECIMAL(9,2) null default '0.00',
+	valor DECIMAL(9,2) null default '0.00',
 	created datetime,
     modified datetime,
     produto_id int(11),
